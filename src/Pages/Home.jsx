@@ -1,5 +1,16 @@
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import HeroSectionBackground from "../assets/images/Hero Section Background.jpg";
+import OffsetPrintingImage from "../assets/images/Offset Printing Image.jpg";
+import LargeFormatPrintingImage from "../assets/images/Large Format Printing Image.jpg";
+import PromotionalItemsImage from "../assets/images/Promotional Items Image.jpg";
+import SignageImage from "../assets/images/Signage Image.jpg";
+import TeamMember1Image from "../assets/images/Team Member 1 Image.jpg";
+import TeamMember2Image from "../assets/images/Team Member 2 Image.jpg";
+import TeamMember3Image from "../assets/images/Team Member 3 Image.jpg";
+import Client1Image from "../assets/images/Client 1 Image.jpg";
+import Client2Image from "../assets/images/Client 2 Image.jpg";
+import Client3Image from "../assets/images/Client 3 Image.jpg";
 
 const Home = () => {
   return (
@@ -9,7 +20,7 @@ const Home = () => {
         <section
           className="relative min-h-[60vh] flex items-end bg-cover bg-center text-white"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("/assets/images/hero-bg.jpg")`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(${HeroSectionBackground})`,
           }}
         >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center md:text-left">
@@ -44,9 +55,7 @@ const Home = () => {
               <div className="flex flex-col gap-4 bg-off-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 border border-light-gray">
                 <div
                   className="w-full h-48 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url("/assets/images/offset-printing.jpg")`,
-                  }}
+                  style={{ backgroundImage: `url(${OffsetPrintingImage})` }}
                 ></div>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-primary-blue">
@@ -62,7 +71,7 @@ const Home = () => {
                 <div
                   className="w-full h-48 bg-cover bg-center"
                   style={{
-                    backgroundImage: `url("/assets/images/large-format.jpg")`,
+                    backgroundImage: `url(${LargeFormatPrintingImage})`,
                   }}
                 ></div>
                 <div className="p-6">
@@ -77,9 +86,7 @@ const Home = () => {
               <div className="flex flex-col gap-4 bg-off-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 border border-light-gray">
                 <div
                   className="w-full h-48 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url("/assets/images/promotional-items.jpg")`,
-                  }}
+                  style={{ backgroundImage: `url(${PromotionalItemsImage})` }}
                 ></div>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-primary-blue">
@@ -93,9 +100,7 @@ const Home = () => {
               <div className="flex flex-col gap-4 bg-off-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 border border-light-gray">
                 <div
                   className="w-full h-48 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url("/assets/images/signage.jpg")`,
-                  }}
+                  style={{ backgroundImage: `url(${SignageImage})` }}
                 ></div>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-primary-blue">
@@ -138,7 +143,7 @@ const Home = () => {
               <div className="text-center">
                 <div
                   className="mx-auto h-40 w-40 rounded-full bg-cover bg-center"
-                  style={{ backgroundImage: `url("/assets/images/team1.jpg")` }}
+                  style={{ backgroundImage: `url(${TeamMember1Image})` }}
                 ></div>
                 <h3 className="mt-6 text-lg font-semibold text-primary-blue">
                   Akinola Adebayo
@@ -150,7 +155,7 @@ const Home = () => {
               <div className="text-center">
                 <div
                   className="mx-auto h-40 w-40 rounded-full bg-cover bg-center"
-                  style={{ backgroundImage: `url("/assets/images/team2.jpg")` }}
+                  style={{ backgroundImage: `url(${TeamMember2Image})` }}
                 ></div>
                 <h3 className="mt-6 text-lg font-semibold text-primary-blue">
                   Chidinma Okoro
@@ -162,7 +167,7 @@ const Home = () => {
               <div className="text-center">
                 <div
                   className="mx-auto h-40 w-40 rounded-full bg-cover bg-center"
-                  style={{ backgroundImage: `url("/assets/images/team3.jpg")` }}
+                  style={{ backgroundImage: `url(${TeamMember3Image})` }}
                 ></div>
                 <h3 className="mt-6 text-lg font-semibold text-primary-blue">
                   Ibrahim Musa
@@ -262,9 +267,7 @@ const Home = () => {
                 <div className="flex items-center gap-4">
                   <div
                     className="h-12 w-12 rounded-full bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url("/assets/images/client1.jpg")`,
-                    }}
+                    style={{ backgroundImage: `url(${Client1Image})` }}
                   ></div>
                   <div>
                     <p className="font-semibold text-primary-blue">Ngozi Eze</p>
@@ -295,9 +298,7 @@ const Home = () => {
                 <div className="flex items-center gap-4">
                   <div
                     className="h-12 w-12 rounded-full bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url("/assets/images/client2.jpg")`,
-                    }}
+                    style={{ backgroundImage: `url(${Client2Image})` }}
                   ></div>
                   <div>
                     <p className="font-semibold text-primary-blue">
@@ -340,9 +341,7 @@ const Home = () => {
                 <div className="flex items-center gap-4">
                   <div
                     className="h-12 w-12 rounded-full bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url("/assets/images/client3.jpg")`,
-                    }}
+                    style={{ backgroundImage: `url(${Client3Image})` }}
                   ></div>
                   <div>
                     <p className="font-semibold text-primary-blue">

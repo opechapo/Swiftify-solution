@@ -1,5 +1,6 @@
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import AboutBackgroundImage from "../assets/images/About Background Image.jpg";
 
 const About = () => {
   return (
@@ -19,9 +20,7 @@ const About = () => {
             <div className="mt-12 aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl bg-white">
               <div
                 className="w-full h-full bg-cover bg-center"
-                style={{
-                  backgroundImage: `url("/assets/images/about-bg.jpg")`,
-                }}
+                style={{ backgroundImage: `url(${AboutBackgroundImage})` }}
               ></div>
             </div>
             <div className="mt-12 prose prose-lg max-w-none text-dark-gray bg-white p-8 rounded-lg shadow-xl">

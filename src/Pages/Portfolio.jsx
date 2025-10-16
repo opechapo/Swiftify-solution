@@ -1,5 +1,17 @@
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import Portfolio1Image from "../assets/images/Portfolio 1 Image.jpg";
+import Portfolio2Image from "../assets/images/Portfolio 2 Image.jpg";
+import Portfolio3Image from "../assets/images/Portfolio 3 Image.jpg";
+import Portfolio4Image from "../assets/images/Portfolio 4 Image.jpg";
+import Portfolio5Image from "../assets/images/Portfolio 5 Image.jpg";
+import Portfolio6Image from "../assets/images/Portfolio 6 Image.jpg";
+import Portfolio7Image from "../assets/images/Portfolio 7 Image.jpg";
+import Portfolio8Image from "../assets/images/Portfolio 8 Image.jpg";
+import Portfolio9Image from "../assets/images/Portfolio 9 Image.jpg";
+import Portfolio10Image from "../assets/images/Portfolio 10 Image.jpg";
+import Portfolio11Image from "../assets/images/Portfolio 11 Image.jpg";
+import Portfolio12Image from "../assets/images/Portfolio 12 Image.jpg";
 
 const Portfolio = () => {
   return (
@@ -28,7 +40,7 @@ const Portfolio = () => {
                   <img
                     alt="Brochures for Tech Innovators"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio1.jpg"
+                    src={Portfolio1Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -44,7 +56,7 @@ const Portfolio = () => {
                   <img
                     alt="Annual Reports for Financial Group"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio2.jpg"
+                    src={Portfolio2Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -60,7 +72,7 @@ const Portfolio = () => {
                   <img
                     alt="Marketing Materials for Retail Chain"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio3.jpg"
+                    src={Portfolio3Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -83,7 +95,7 @@ const Portfolio = () => {
                   <img
                     alt="Event Banners for Music Festival"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio4.jpg"
+                    src={Portfolio4Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -99,7 +111,7 @@ const Portfolio = () => {
                   <img
                     alt="Outdoor Signage for Restaurant"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio5.jpg"
+                    src={Portfolio5Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -115,7 +127,7 @@ const Portfolio = () => {
                   <img
                     alt="Trade Show Displays for Tech Company"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio6.jpg"
+                    src={Portfolio6Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -138,7 +150,7 @@ const Portfolio = () => {
                   <img
                     alt="Custom Branded Merchandise"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio7.jpg"
+                    src={Portfolio7Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -154,7 +166,7 @@ const Portfolio = () => {
                   <img
                     alt="Corporate Gifts for Financial Firm"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio8.jpg"
+                    src={Portfolio8Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -170,7 +182,7 @@ const Portfolio = () => {
                   <img
                     alt="Promotional Items for Marketing Campaign"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio9.jpg"
+                    src={Portfolio9Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -193,7 +205,7 @@ const Portfolio = () => {
                   <img
                     alt="Interior Signage for Office Building"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio10.jpg"
+                    src={Portfolio10Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -209,7 +221,7 @@ const Portfolio = () => {
                   <img
                     alt="Exterior Signage for Retail Store"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio11.jpg"
+                    src={Portfolio11Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
@@ -225,7 +237,7 @@ const Portfolio = () => {
                   <img
                     alt="Wayfinding Signage for Shopping Mall"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    src="/assets/images/portfolio12.jpg"
+                    src={Portfolio12Image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">

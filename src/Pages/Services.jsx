@@ -1,5 +1,13 @@
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import OffsetPrintingImage1 from "../assets/images/Offset Printing Image 1.jpg";
+import OffsetPrintingImage2 from "../assets/images/Offset Printing Image 2.jpg";
+import LargeFormatPrintingImage1 from "../assets/images/Large Format Printing Image 1.jpg";
+import LargeFormatPrintingImage2 from "../assets/images/Large Format Printing Image 2.jpg";
+import PromotionalItemsImage1 from "../assets/images/Promotional Items Image 1.jpg";
+import PromotionalItemsImage2 from "../assets/images/Promotional Items Image 2.jpg";
+import SignageImage1 from "../assets/images/Signage Image 1.jpg";
+import SignageImage2 from "../assets/images/Signage Image 2.jpg";
 
 const Services = () => {
   return (
@@ -8,7 +16,7 @@ const Services = () => {
       <main className="flex-grow">
         <div className="container mx-auto px-4 py-12 sm:px-6 lg:py-20 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-black sm:text-4xl">
               Our Services
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
@@ -38,14 +46,14 @@ const Services = () => {
                     <img
                       alt="Offset Printing Image 1"
                       className="w-full h-full object-cover"
-                      src="/assets/images/offset-printing1.jpg"
+                      src={OffsetPrintingImage1}
                     />
                   </div>
                   <div className="col-span-1 row-span-1 rounded-lg overflow-hidden">
                     <img
                       alt="Offset Printing Image 2"
                       className="w-full h-full object-cover"
-                      src="/assets/images/offset-printing2.jpg"
+                      src={OffsetPrintingImage2}
                     />
                   </div>
                   <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center">
@@ -74,14 +82,14 @@ const Services = () => {
                     <img
                       alt="Large Format Printing Image 1"
                       className="w-full h-full object-cover"
-                      src="/assets/images/large-format1.jpg"
+                      src={LargeFormatPrintingImage1}
                     />
                   </div>
                   <div className="col-span-1 row-span-2 rounded-lg overflow-hidden">
                     <img
                       alt="Large Format Printing Image 2"
                       className="w-full h-full object-cover"
-                      src="/assets/images/large-format2.jpg"
+                      src={LargeFormatPrintingImage2}
                     />
                   </div>
                   <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center">
@@ -108,14 +116,14 @@ const Services = () => {
                     <img
                       alt="Promotional Items Image 1"
                       className="w-full h-full object-cover"
-                      src="/assets/images/promotional-items1.jpg"
+                      src={PromotionalItemsImage1}
                     />
                   </div>
                   <div className="col-span-1 row-span-1 rounded-lg overflow-hidden">
                     <img
                       alt="Promotional Items Image 2"
                       className="w-full h-full object-cover"
-                      src="/assets/images/promotional-items2.jpg"
+                      src={PromotionalItemsImage2}
                     />
                   </div>
                   <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center">
@@ -144,14 +152,14 @@ const Services = () => {
                     <img
                       alt="Signage Image 1"
                       className="w-full h-full object-cover"
-                      src="/assets/images/signage1.jpg"
+                      src={SignageImage1}
                     />
                   </div>
                   <div className="col-span-1 row-span-2 rounded-lg overflow-hidden">
                     <img
                       alt="Signage Image 2"
                       className="w-full h-full object-cover"
-                      src="/assets/images/signage2.jpg"
+                      src={SignageImage2}
                     />
                   </div>
                   <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center">
