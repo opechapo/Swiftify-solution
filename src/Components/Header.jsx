@@ -8,13 +8,19 @@ import {
   FaEnvelope,
   FaWhatsapp,
   FaTimes,
+  FaBars,
 } from "react-icons/fa";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -93,13 +99,103 @@ const Header = () => {
               Contact Us
             </NavLink>
           </nav>
-          <button
-            onClick={toggleModal}
-            className="hidden md:flex items-center justify-center rounded-lg bg-white text-primary-blue h-10 px-5 text-sm font-bold shadow-sm hover:bg-secondary-blue hover:text-white transition-colors"
-          >
-            Contact Us
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleModal}
+              className="hidden md:flex items-center justify-center rounded-lg bg-white text-primary-blue h-10 px-5 text-sm font-bold shadow-sm hover:bg-secondary-blue hover:text-white transition-colors"
+            >
+              Contact Us
+            </button>
+            <button
+              className="md:hidden text-blue-500 focus:outline-none"
+              onClick={toggleMobileMenu}
+            >
+              <FaBars size={24} />
+            </button>
+          </div>
         </div>
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-light-gray">
+            <nav className="flex flex-col items-center gap-4 py-4">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-blue-400"
+                      : "text-blue-400 hover:text-blue-600"
+                  }`
+                }
+                onClick={toggleMobileMenu}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/services"
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-blue-400"
+                      : "text-blue-400 hover:text-blue-600"
+                  }`
+                }
+                onClick={toggleMobileMenu}
+              >
+                Services
+              </NavLink>
+              <NavLink
+                to="/portfolio"
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-blue-400"
+                      : "text-blue-400 hover:text-blue-600"
+                  }`
+                }
+                onClick={toggleMobileMenu}
+              >
+                Portfolio
+              </NavLink>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-blue-400"
+                      : "text-blue-400 hover:text-blue-600"
+                  }`
+                }
+                onClick={toggleMobileMenu}
+              >
+                About Us
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-blue-400"
+                      : "text-blue-400 hover:text-blue-600"
+                  }`
+                }
+                onClick={toggleMobileMenu}
+              >
+                Contact Us
+              </NavLink>
+              <button
+                onClick={toggleModal}
+                className="text-sm font-medium text-blue-400 hover:text-blue-600 transition-colors"
+                onClick={() => {
+                  toggleModal();
+                  toggleMobileMenu();
+                }}
+              >
+                Contact Us (Social)
+              </button>
+            </nav>
+          </div>
+        )}
       </header>
 
       {isModalOpen && (
