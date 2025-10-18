@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import swiftifyLogo from "../assets/images/swiftify-logo-image-cropped.jpg"; // Adjust path if needed
+import swiftifyLogo from "../assets/images/swiftify-logo-image-cropped-favicon.jpg"; // Updated path
 import {
   FaLinkedin,
   FaInstagram,
@@ -23,17 +23,22 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleContactSocialClick = () => {
+    toggleModal();
+    toggleMobileMenu();
+  };
+
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white backdrop-blur-sm border-b border-light-gray">
+      <header className="sticky top-0 z-50 bg-white backdrop-blur-sm border-light-gray">
         <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
           <NavLink to="/" className="flex items-center gap-3">
             <img
               src={swiftifyLogo}
               alt="Swiftify Solution Logo"
-              className="h-8 w-8 object-contain"
+              className="h-10 w-10 object-contain"
             />
-            <h2 className="text-xl font-bold text-blue-500">
+            <h2 className="text-l font-bold text-blue-500">
               Swiftify Solution
             </h2>
           </NavLink>
@@ -181,15 +186,11 @@ const Header = () => {
                 }
                 onClick={toggleMobileMenu}
               >
-                Contact Us
+                Contact Us Now
               </NavLink>
               <button
-                onClick={toggleModal}
+                onClick={handleContactSocialClick}
                 className="text-sm font-medium text-blue-400 hover:text-blue-600 transition-colors"
-                onClick={() => {
-                  toggleModal();
-                  toggleMobileMenu();
-                }}
               >
                 Contact Us (Social)
               </button>
