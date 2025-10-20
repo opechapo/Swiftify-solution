@@ -32,7 +32,7 @@ const Header = () => {
     <>
       <header className="sticky top-0 z-50 bg-white backdrop-blur-sm border-light-gray">
         <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
-          <NavLink to="/" className="flex items-center gap-3">
+          <NavLink to="/" className="flex items-center gap-2">
             <img
               src={swiftifyLogo}
               alt="Swiftify Solution Logo"
@@ -46,7 +46,7 @@ const Header = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${
+                `text-xl font-medium transition-colors ${
                   isActive
                     ? "text-blue-400"
                     : "text-blue-400 hover:text-blue-600"
@@ -58,7 +58,7 @@ const Header = () => {
             <NavLink
               to="/services"
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${
+                `text-xl font-medium transition-colors ${
                   isActive
                     ? "text-blue-400"
                     : "text-blue-400 hover:text-blue-600"
@@ -70,7 +70,7 @@ const Header = () => {
             <NavLink
               to="/portfolio"
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${
+                `text-xl font-medium transition-colors ${
                   isActive
                     ? "text-blue-400"
                     : "text-blue-400 hover:text-blue-600"
@@ -82,7 +82,7 @@ const Header = () => {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${
+                `text-xl font-medium transition-colors ${
                   isActive
                     ? "text-blue-400"
                     : "text-blue-400 hover:text-blue-600"
@@ -94,7 +94,7 @@ const Header = () => {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${
+                `text-xl font-medium transition-colors ${
                   isActive
                     ? "text-blue-400"
                     : "text-blue-400 hover:text-blue-600"
@@ -107,7 +107,7 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={toggleModal}
-              className="hidden md:flex items-center justify-center rounded-lg bg-white text-primary-blue h-10 px-5 text-sm font-bold shadow-sm hover:bg-secondary-blue hover:text-white transition-colors"
+              className="hidden md:flex items-center justify-center rounded-lg bg-white text-blue-400 h-10 px-5 text-l font-bold shadow-sm hover:bg-secondary-blue hover:text-white transition-colors"
             >
               Contact Us
             </button>

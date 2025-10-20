@@ -1,6 +1,8 @@
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import HeroSectionBackground from "../assets/images/Hero Section Background.jpg";
+import HeroSectionBackground2 from "../assets/images/Hero Section Background2.jpg";
+import HeroSectionBackground3 from "../assets/images/Hero Section Background3.jpg";
+import HeroSectionBackground4 from "../assets/images/Hero Section Background4.jpg";
 import OffsetPrintingImage from "../assets/images/Offset Printing Image.jpg";
 import LargeFormatPrintingImage from "../assets/images/Large Format Printing Image.jpg";
 import PromotionalItemsImage from "../assets/images/Promotional Items Image.jpg";
@@ -12,30 +14,56 @@ import Client1Image from "../assets/images/Client 1 Image.jpg";
 import Client2Image from "../assets/images/Client 2 Image.jpg";
 import Client3Image from "../assets/images/Client 3 Image.jpg";
 
+import { useState, useEffect } from "react";
+
 const Home = () => {
+  const [currentHeroImage, setCurrentHeroImage] = useState(0);
+  const heroImages = [
+    HeroSectionBackground2,
+    HeroSectionBackground3,
+    HeroSectionBackground4,
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroImage((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
   return (
     <div className="flex flex-col min-h-screen font-display bg-white text-dark-gray">
       <Header />
       <main className="flex-grow">
-        <section
-          className="relative min-h-[60vh] flex items-end bg-cover bg-center text-white"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(${HeroSectionBackground})`,
-          }}
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center md:text-left">
+        <section className="relative min-h-[85vh] flex items-end bg-cover bg-center text-black overflow-hidden">
+          <div className="absolute inset-0">
+            {heroImages.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                  index === currentHeroImage ? "opacity-100" : "opacity-0"
+                }`}
+                style={{
+                  backgroundImage: `url(${image})`,
+                }}
+              />
+            ))}
+          </div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center md:text-left relative z-10">
             <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-white">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent drop-shadow-lg">
                 Your Vision, Our Print
               </h1>
-              <p className="mt-4 text-lg md:text-xl max-w-2xl text-white">
-                Swiftify Solutions is a leading printing company in Lagos,
-                Nigeria, specializing in offset printing, large format printing,
-                promotional items, and signage. We deliver high-quality,
-                customized printing solutions to meet your business needs.
+              <p className="mt-4 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto md:mx-0 text-black leading-relaxed drop-shadow-md">
+                Swiftify Solutions is a premier printing powerhouse, delivering
+                cutting-edge offset printing, large format solutions,
+                promotional merchandise, and corporate signage with unmatched
+                precision and speed. Transform your brand with our world-class
+                printing excellence.
               </p>
-              <button className="mt-8 rounded-lg bg-primary-blue text-white h-12 px-6 text-base font-bold shadow-lg hover:bg-secondary-blue transition-all transform hover:scale-105">
-                Get a Quote
+              <button className="mt-8 rounded-lg bg-blue-400 text-white h-12 px-6 text-base font-bold shadow-lg hover:bg-secondary-blue transition-all transform hover:scale-105 cursor-pointer">
+                Contact Us
               </button>
             </div>
           </div>
