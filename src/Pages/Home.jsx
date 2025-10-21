@@ -15,14 +15,25 @@ import Client2Image from "../assets/images/Client 2 Image.jpg";
 import Client3Image from "../assets/images/Client 3 Image.jpg";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
   const heroImages = [
     HeroSectionBackground2,
     HeroSectionBackground3,
     HeroSectionBackground4,
   ];
+
+  const handleServiceClick = (service) => {
+    navigate(
+      `/services/${service
+        .toLowerCase()
+        .replace(/ & /g, "-")
+        .replace(/ /g, "-")}`
+    );
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,6 +42,34 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
+
+  const services = [
+    {
+      name: "Offset Printing",
+      description:
+        "High-volume, cost-effective printing for brochures, flyers, and more.",
+      image: OffsetPrintingImage,
+      route: "offset-printing",
+    },
+    {
+      name: "Large Format Printing",
+      description: "Eye-catching banners, posters, and vehicle wraps.",
+      image: LargeFormatPrintingImage,
+      route: "large-format-printing",
+    },
+    {
+      name: "Promotional Items",
+      description: "Customized merchandise to boost your brand visibility.",
+      image: PromotionalItemsImage,
+      route: "promotional-items",
+    },
+    {
+      name: "Industrial & Corporate Signage",
+      description: "Durable and impactful signage for businesses and events.",
+      image: SignageImage,
+      route: "industrial-corporate-signage",
+    },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen font-display bg-white text-dark-gray">
@@ -80,65 +119,38 @@ const Home = () => {
               </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              <div className="flex flex-col gap-4 bg-off-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 border border-light-gray">
+              {services.map((service, index) => (
                 <div
-                  className="w-full h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${OffsetPrintingImage})` }}
-                ></div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-primary-blue">
-                    Offset Printing
-                  </h3>
-                  <p className="mt-2 text-sm text-dark-gray">
-                    High-volume, cost-effective printing for brochures, flyers,
-                    and more.
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 bg-off-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 border border-light-gray">
-                <div
-                  className="w-full h-48 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url(${LargeFormatPrintingImage})`,
+                  key={index}
+                  className="flex flex-col gap-4 bg-off-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-2 border border-light-gray cursor-pointer group"
+                  onClick={() => handleServiceClick(service.name)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      handleServiceClick(service.name);
+                    }
                   }}
-                ></div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-primary-blue">
-                    Large Format Printing
-                  </h3>
-                  <p className="mt-2 text-sm text-dark-gray">
-                    Eye-catching banners, posters, and vehicle wraps.
-                  </p>
+                >
+                  <div
+                    className="w-full h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                    style={{ backgroundImage: `url(${service.image})` }}
+                  ></div>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-lg font-semibold text-primary-blue group-hover:text-blue-400 transition-colors">
+                      {service.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-dark-gray flex-grow">
+                      {service.description}
+                    </p>
+                    <div className="mt-4 pt-4 border-t border-light-gray">
+                      <span className="text-xs text-secondary-blue font-medium group-hover:underline">
+                        Learn More →
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col gap-4 bg-off-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 border border-light-gray">
-                <div
-                  className="w-full h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${PromotionalItemsImage})` }}
-                ></div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-primary-blue">
-                    Promotional Items
-                  </h3>
-                  <p className="mt-2 text-sm text-dark-gray">
-                    Customized merchandise to boost your brand visibility.
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 bg-off-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 border border-light-gray">
-                <div
-                  className="w-full h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${SignageImage})` }}
-                ></div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-primary-blue">
-                    Industrial & Corporate Signage
-                  </h3>
-                  <p className="mt-2 text-sm text-dark-gray">
-                    Durable and impactful signage for businesses and events.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
