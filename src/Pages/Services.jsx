@@ -1,5 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import OffsetPrintingImage from "../assets/images/Offset Printing Image.jpg";
+import LargeFormatPrintingImage from "../assets/images/Large Format Printing Image.jpg";
+import PromotionalItemsImage from "../assets/images/Promotional Items Image.jpg";
+import SignageImage from "../assets/images/Signage Image.jpg";
 import OffsetPrintingImage1 from "../assets/images/Offset Printing Image 1.jpg";
 import OffsetPrintingImage2 from "../assets/images/Offset Printing Image 2.jpg";
 import LargeFormatPrintingImage1 from "../assets/images/Large Format Printing Image 1.jpg";
@@ -10,6 +15,45 @@ import SignageImage1 from "../assets/images/Signage Image 1.jpg";
 import SignageImage2 from "../assets/images/Signage Image 2.jpg";
 
 const Services = () => {
+  const navigate = useNavigate();
+
+  const services = [
+    {
+      name: "Offset Printing",
+      description:
+        "High-volume, cost-effective printing for brochures, flyers, and more.",
+      image: OffsetPrintingImage,
+      route: "offset-printing",
+    },
+    {
+      name: "Large Format Printing",
+      description: "Eye-catching banners, posters, and vehicle wraps.",
+      image: LargeFormatPrintingImage,
+      route: "large-format-printing",
+    },
+    {
+      name: "Promotional Items",
+      description: "Customized merchandise to boost your brand visibility.",
+      image: PromotionalItemsImage,
+      route: "promotional-items",
+    },
+    {
+      name: "Industrial & Corporate Signage",
+      description: "Durable and impactful signage for businesses and events.",
+      image: SignageImage,
+      route: "industrial-corporate-signage",
+    },
+  ];
+
+  const handleServiceClick = (service) => {
+    navigate(
+      `/services/${service
+        .toLowerCase()
+        .replace(/ & /g, "-")
+        .replace(/ /g, "-")}`
+    );
+  };
+
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200">
       <Header />
@@ -27,6 +71,54 @@ const Services = () => {
               project.
             </p>
           </div>
+
+          {/* Comprehensive Printing Solutions Section */}
+          <div className="mt-12">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                Comprehensive Printing Solutions
+              </h2>
+              <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                We offer a wide range of printing services to cater to diverse
+                needs, ensuring top-notch quality and timely delivery.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col gap-4 bg-gray-300 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-2 border border-light-gray cursor-pointer group"
+                  onClick={() => handleServiceClick(service.name)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      handleServiceClick(service.name);
+                    }
+                  }}
+                >
+                  <div
+                    className="w-full h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                    style={{ backgroundImage: `url(${service.image})` }}
+                  ></div>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-lg font-semibold text-gray-700 group-hover:text-gray-400 transition-colors">
+                      {service.name}
+                    </h3>
+                    <p className="mt-2 text-xl text-gray-200 dark:text-gray-400 flex-grow">
+                      {service.description}
+                    </p>
+                    <div className="mt-4 pt-4 border-t border-light-gray">
+                      <span className="text-l text-blue-600 font-medium group-hover:underline">
+                        Learn More →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-16 space-y-16">
             <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
               <div className="lg:w-1/2">

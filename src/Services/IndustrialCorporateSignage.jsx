@@ -287,14 +287,14 @@ const IndustrialCorporateSignage = () => {
               {/* Complete Signage Package Sidebar */}
               <div className="lg:sticky lg:top-20 self-start">
                 <div
-                  className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 text-white"
+                  className="rounded-2xl p-8 text-white"
                   style={{
                     backgroundImage: `url(${CompleteSignagePackage})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                 >
-                  <div className="absolute inset-0 bg-black/20"></div>
+                  <div className="absolute inset-0"></div>
                   <div className="relative z-10">
                     <div className="text-5xl mb-6">🏢</div>
                     <h3 className="text-2xl font-bold mb-4">
@@ -342,34 +342,36 @@ const IndustrialCorporateSignage = () => {
         >
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
               Your Sign, Our Expertise
             </h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90 text-black">
               Complete signage solutions from concept to installation with
               industry-leading warranties and support.
             </p>
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12 text-left">
+            <div className="grid md:grid-cols-3 gap-15 max-w-4xl mx-auto mb-12 text-left">
               <div>
                 <div className="text-3xl mb-3">🎨</div>
-                <h3 className="font-bold mb-2">Custom Design</h3>
-                <p>
+                <h3 className="font-bold mb-2 text-black">Custom Design</h3>
+                <p className="text-black">
                   Professional designers create signage that matches your brand
                   perfectly.
                 </p>
               </div>
               <div>
                 <div className="text-3xl mb-3">🏗️</div>
-                <h3 className="font-bold mb-2">Expert Installation</h3>
-                <p>
+                <h3 className="font-bold mb-2 text-black">
+                  Expert Installation
+                </h3>
+                <p className="text-black">
                   Certified installers ensure perfect placement and structural
                   integrity.
                 </p>
               </div>
               <div>
                 <div className="text-3xl mb-3">🛠️</div>
-                <h3 className="font-bold mb-2">Maintenance</h3>
-                <p>
+                <h3 className="font-bold mb-2 text-black">Maintenance</h3>
+                <p className="text-black">
                   Regular maintenance and repair services keep your signage
                   looking new.
                 </p>
@@ -377,7 +379,7 @@ const IndustrialCorporateSignage = () => {
             </div>
             <Link
               to="/contact"
-              className="bg-primary-blue px-10 py-4 rounded-lg font-bold text-lg hover:bg-secondary-blue transition-all transform hover:scale-105 inline-block"
+              className="bg-blue-400 px-10 py-4 rounded-lg font-bold text-lg hover:bg-blue-600 transition-all transform hover:scale-105 inline-block"
             >
               Schedule Consultation
             </Link>

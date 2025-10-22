@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import HeroSectionBackground2 from "../assets/images/Hero Section Background2.jpg";
@@ -13,17 +15,111 @@ import TeamMember3Image from "../assets/images/Team Member 3 Image.jpg";
 import Client1Image from "../assets/images/Client 1 Image.jpg";
 import Client2Image from "../assets/images/Client 2 Image.jpg";
 import Client3Image from "../assets/images/Client 3 Image.jpg";
-
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import Portfolio1Image from "../assets/images/Portfolio 1 Image.jpg";
+import Portfolio2Image from "../assets/images/Portfolio 2 Image.jpg";
+import Portfolio3Image from "../assets/images/Portfolio 3 Image.jpg";
+import Portfolio4Image from "../assets/images/Portfolio 4 Image.jpg";
+import Portfolio5Image from "../assets/images/Portfolio 5 Image.jpg";
+import Portfolio6Image from "../assets/images/Portfolio 6 Image.jpg";
+import Portfolio7Image from "../assets/images/Portfolio 7 Image.jpg";
+import Portfolio8Image from "../assets/images/Portfolio 8 Image.jpg";
+import Portfolio9Image from "../assets/images/Portfolio 9 Image.jpg";
+import Portfolio10Image from "../assets/images/Portfolio 10 Image.jpg";
+import Portfolio11Image from "../assets/images/Portfolio 11 Image.jpg";
+import Portfolio12Image from "../assets/images/Portfolio 12 Image.jpg";
 
 const Home = () => {
   const navigate = useNavigate();
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
+  const [selectedItem, setSelectedItem] = useState(null);
+
   const heroImages = [
     HeroSectionBackground2,
     HeroSectionBackground3,
     HeroSectionBackground4,
+  ];
+
+  const portfolioItems = [
+    {
+      category: "Offset Printing",
+      items: [
+        {
+          title: "Brochures for Tech Innovators",
+          description: "High-quality brochures for a tech company",
+          image: Portfolio1Image,
+        },
+        {
+          title: "Annual Reports for Financial Group",
+          description: "Detailed annual reports for a financial institution",
+          image: Portfolio2Image,
+        },
+        {
+          title: "Marketing Materials for Retail Chain",
+          description: "Eye-catching marketing materials for a retail chain",
+          image: Portfolio3Image,
+        },
+      ],
+    },
+    {
+      category: "Large Format Printing",
+      items: [
+        {
+          title: "Event Banners for Music Festival",
+          description: "Large format banners for a music festival",
+          image: Portfolio4Image,
+        },
+        {
+          title: "Outdoor Signage for Restaurant",
+          description: "Durable outdoor signage for a restaurant",
+          image: Portfolio5Image,
+        },
+        {
+          title: "Trade Show Displays for Tech Company",
+          description: "Professional trade show displays for a tech company",
+          image: Portfolio6Image,
+        },
+      ],
+    },
+    {
+      category: "Promotional Items",
+      items: [
+        {
+          title: "Custom Branded Merchandise",
+          description: "Unique branded merchandise for a startup",
+          image: Portfolio7Image,
+        },
+        {
+          title: "Corporate Gifts for Financial Firm",
+          description: "Elegant corporate gifts for a financial firm",
+          image: Portfolio8Image,
+        },
+        {
+          title: "Promotional Items Campaign",
+          description: "Effective promotional items for a marketing campaign",
+          image: Portfolio9Image,
+        },
+      ],
+    },
+    {
+      category: "Signage",
+      items: [
+        {
+          title: "Interior Office Signage",
+          description: "Modern interior signage for an office building",
+          image: Portfolio10Image,
+        },
+        {
+          title: "Exterior Retail Signage",
+          description: "Attractive exterior signage for a retail store",
+          image: Portfolio11Image,
+        },
+        {
+          title: "Mall Wayfinding Signage",
+          description: "Clear wayfinding signage for a shopping mall",
+          image: Portfolio12Image,
+        },
+      ],
+    },
   ];
 
   const handleServiceClick = (service) => {
@@ -33,6 +129,14 @@ const Home = () => {
         .replace(/ & /g, "-")
         .replace(/ /g, "-")}`
     );
+  };
+
+  const handleImageClick = (item) => {
+    setSelectedItem(item);
+  };
+
+  const closeModal = () => {
+    setSelectedItem(null);
   };
 
   useEffect(() => {
@@ -154,6 +258,80 @@ const Home = () => {
             </div>
           </div>
         </section>
+        {/* Portfolio Section */}
+        <section className="py-16 sm:py-24 bg-off-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl font-bold text-primary-blue">
+                Our Portfolio
+              </h2>
+              <p className="mt-4 text-lg text-dark-gray">
+                Explore our diverse range of projects, showcasing our expertise
+                in offset printing, large format printing, promotional items,
+                and signage.
+              </p>
+            </div>
+            <div className="mt-12 space-y-16">
+              {portfolioItems.map((section) => (
+                <div key={section.category}>
+                  <h3 className="text-2xl font-semibold text-primary-blue mb-8">
+                    {section.category}
+                  </h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {section.items.map((item, index) => (
+                      <div
+                        key={index}
+                        className="group relative overflow-hidden rounded-lg cursor-pointer bg-white shadow-md border border-light-gray"
+                        onClick={() => handleImageClick(item)}
+                      >
+                        <img
+                          alt={item.title}
+                          className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                          src={item.image}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div className="absolute bottom-0 left-0 p-6">
+                          <h4 className="text-lg font-bold text-white">
+                            {item.title}
+                          </h4>
+                          <p className="text-sm text-gray-300 mt-1">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        {/* Modal for enlarged image */}
+        {selectedItem && (
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+            <div className="relative p-6 rounded-lg max-w-3xl w-full mx-4">
+              <button
+                className="absolute top-2 right-2 text-4xl text-white hover:text-gray-300"
+                onClick={closeModal}
+              >
+                &times;
+              </button>
+              <img
+                alt={selectedItem.title}
+                className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
+                src={selectedItem.image}
+              />
+              <div className="mt-4 text-center">
+                <h3 className="text-2xl font-bold text-white">
+                  {selectedItem.title}
+                </h3>
+                <p className="text-lg text-white mt-2">
+                  {selectedItem.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
         <section className="bg-off-white py-16 sm:py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">

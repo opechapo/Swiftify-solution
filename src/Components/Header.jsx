@@ -211,7 +211,23 @@ const Header = () => {
             <h3 className="text-lg font-bold text-center mb-6">
               Connect With Us
             </h3>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-8">
+              <a
+                href="https://wa.me/+2349067399589"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-green-600 hover:text-green-300"
+              >
+                <FaWhatsapp size={24} />
+                <span>(+234)906-7399-589</span>
+              </a>
+              <a
+                href="mailto:contact@swiftifysolution.com"
+                className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
+              >
+                <FaEnvelope size={24} />
+                <span>info@swiftifysolution.com</span>
+              </a>
               <a
                 href="https://www.linkedin.com/company/swiftify-solution"
                 target="_blank"
@@ -225,7 +241,7 @@ const Header = () => {
                 href="https://www.instagram.com/swiftify_solution"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
+                className="flex items-center gap-2 text-orange-600 hover:text-orange-300"
               >
                 <FaInstagram size={24} />
                 <span>Instagram</span>
@@ -234,26 +250,10 @@ const Header = () => {
                 href="https://www.tiktok.com/@swiftify_solution"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
+                className="flex items-center gap-2 text-black hover:text-grey-800"
               >
                 <FaTiktok size={24} />
                 <span>TikTok</span>
-              </a>
-              <a
-                href="mailto:contact@swiftifysolution.com"
-                className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
-              >
-                <FaEnvelope size={24} />
-                <span>contact@swiftifysolution.com</span>
-              </a>
-              <a
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
-              >
-                <FaWhatsapp size={24} />
-                <span>+1 (234) 567-890</span>
               </a>
             </div>
           </div>
