@@ -109,7 +109,7 @@ const Services = () => {
                       {service.description}
                     </p>
                     <div className="mt-4 pt-4 border-t border-light-gray">
-                      <span className="text-l text-blue-600 font-medium group-hover:underline">
+                      <span className="text-xl text-blue-600 font-medium group-hover:underline">
                         Learn More →
                       </span>
                     </div>
