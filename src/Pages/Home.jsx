@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import WhatsAppButton from "../Components/WhatAppButton";
 import HeroSectionBackground2 from "../assets/images/Hero Section Background2.jpg";
 import HeroSectionBackground3 from "../assets/images/Hero Section Background3.jpg";
 import HeroSectionBackground4 from "../assets/images/Hero Section Background4.jpg";
@@ -32,6 +33,11 @@ const Home = () => {
   const navigate = useNavigate();
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   const heroImages = [
     HeroSectionBackground2,
@@ -176,8 +182,8 @@ const Home = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen font-display bg-white text-dark-gray">
-      <Header />
+    <div className="flex flex-col min-h-screen font-display bg-white text-dark-gray relative">
+      <Header isModalOpen={isModalOpen} toggleModal={toggleModal} />
       <main className="flex-grow">
         <section className="relative min-h-[85vh] flex items-end bg-cover bg-center text-black overflow-hidden">
           <div className="absolute inset-0">
@@ -205,7 +211,10 @@ const Home = () => {
                 precision and speed. Transform your brand with our world-class
                 printing excellence.
               </p>
-              <button className="mt-8 rounded-lg bg-blue-400 text-white h-12 px-6 text-base font-bold shadow-lg hover:bg-secondary-blue transition-all transform hover:scale-105 cursor-pointer">
+              <button
+                onClick={toggleModal}
+                className="mt-8 rounded-lg bg-blue-400 text-white h-12 px-6 text-base font-bold shadow-lg hover:bg-secondary-blue transition-all transform hover:scale-105 cursor-pointer"
+              >
                 Contact Us
               </button>
             </div>
@@ -217,7 +226,7 @@ const Home = () => {
               <h2 className="text-3xl sm:text-4xl font-bold text-blue-400">
                 Comprehensive Printing Solutions
               </h2>
-              <p className="mt-4 text-lg text-dark-gray">
+              <p className="mt-4 text-lg text-gray-700">
                 We offer a wide range of printing services to cater to diverse
                 needs, ensuring top-notch quality and timely delivery.
               </p>
@@ -226,7 +235,7 @@ const Home = () => {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="flex flex-col gap-4 bg-off-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-2 border border-light-gray cursor-pointer group"
+                  className="flex flex-col gap-4 bg-blue-200 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
                   onClick={() => handleServiceClick(service.name)}
                   role="button"
                   tabIndex={0}
@@ -247,7 +256,7 @@ const Home = () => {
                     <p className="mt-2 text-sm text-dark-gray flex-grow">
                       {service.description}
                     </p>
-                    <div className="mt-4 pt-4 border-t border-light-gray">
+                    <div className="mt-4 pt-4 border-t border-gray-400">
                       <span className="text-xs text-secondary-blue font-medium group-hover:underline">
                         Learn More →
                       </span>
@@ -262,10 +271,10 @@ const Home = () => {
         <section className="py-16 sm:py-24 bg-off-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary-blue">
+              <h2 className="text-3xl sm:text-4xl font-bold text-blue-400">
                 Our Portfolio
               </h2>
-              <p className="mt-4 text-lg text-dark-gray">
+              <p className="mt-4 text-lg text-gray-700">
                 Explore our diverse range of projects, showcasing our expertise
                 in offset printing, large format printing, promotional items,
                 and signage.
@@ -274,14 +283,14 @@ const Home = () => {
             <div className="mt-12 space-y-16">
               {portfolioItems.map((section) => (
                 <div key={section.category}>
-                  <h3 className="text-2xl font-semibold text-primary-blue mb-8">
+                  <h3 className="text-2xl font-semibold text-blue-400 mb-8">
                     {section.category}
                   </h3>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {section.items.map((item, index) => (
                       <div
                         key={index}
-                        className="group relative overflow-hidden rounded-lg cursor-pointer bg-white shadow-md border border-light-gray"
+                        className="group relative overflow-hidden rounded-lg cursor-pointer bg-white shadow-md"
                         onClick={() => handleImageClick(item)}
                       >
                         <img
@@ -332,86 +341,21 @@ const Home = () => {
             </div>
           </div>
         )}
-        <section className="bg-off-white py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary-blue">
-                Ready to Start Your Project?
-              </h2>
-              <p className="mt-4 text-lg text-dark-gray">
-                Contact us today to discuss your printing needs. Our team is
-                ready to assist you with a personalized solution.
-              </p>
-            </div>
-            <div className="mt-8 max-w-xl mx-auto flex justify-center">
-              <button className="rounded-lg bg-primary-blue text-white h-14 px-8 text-base font-bold shadow-md hover:bg-secondary-blue transition-colors">
-                Contact Us
-              </button>
-            </div>
-          </div>
-        </section>
-        <section className="py-16 sm:py-24">
+        <section className="bg-gray-100 py-16 sm:py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary-blue">
-                Meet Our Experts
-              </h2>
-            </div>
-            <div className="mt-12 grid gap-8 md:grid-cols-3 sm:grid-cols-1">
-              <div className="text-center">
-                <div
-                  className="mx-auto h-40 w-40 rounded-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${TeamMember1Image})` }}
-                ></div>
-                <h3 className="mt-6 text-lg font-semibold text-primary-blue">
-                  Akinola Adebayo
-                </h3>
-                <p className="mt-1 text-secondary-blue">
-                  Head of Offset Printing
-                </p>
-              </div>
-              <div className="text-center">
-                <div
-                  className="mx-auto h-40 w-40 rounded-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${TeamMember2Image})` }}
-                ></div>
-                <h3 className="mt-6 text-lg font-semibold text-primary-blue">
-                  Chidinma Okoro
-                </h3>
-                <p className="mt-1 text-secondary-blue">
-                  Large Format Printing Specialist
-                </p>
-              </div>
-              <div className="text-center">
-                <div
-                  className="mx-auto h-40 w-40 rounded-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${TeamMember3Image})` }}
-                ></div>
-                <h3 className="mt-6 text-lg font-semibold text-primary-blue">
-                  Ibrahim Musa
-                </h3>
-                <p className="mt-1 text-secondary-blue">
-                  Signage and Promotional Items Expert
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="bg-off-white py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary-blue">
+              <h2 className="text-3xl sm:text-4xl font-bold text-blue-700">
                 Why Choose Swiftify Solutions?
               </h2>
-              <p className="mt-4 text-lg text-dark-gray">
+              <p className="mt-4 text-lg text-gray-600">
                 We are committed to delivering exceptional value to our clients
                 through superior quality, efficient service, and competitive
                 pricing.
               </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-3">
-              <div className="bg-white rounded-xl shadow-md p-8 border border-light-gray">
-                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary-blue/20 text-primary-blue">
+              <div className="bg-blue-700 rounded-xl shadow-md p-8">
+                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-emerald-500/20 text-emerald-500">
                   <svg
                     fill="currentColor"
                     height="28"
@@ -422,16 +366,16 @@ const Home = () => {
                     <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg>
                 </div>
-                <h3 className="mt-6 text-lg font-semibold text-primary-blue">
+                <h3 className="mt-6 text-lg font-semibold text-white">
                   High-Quality Printing
                 </h3>
-                <p className="mt-2 text-sm text-dark-gray">
+                <p className="mt-2 text-sm text-gray-100">
                   We use state-of-the-art equipment and premium materials to
                   ensure the best results.
                 </p>
               </div>
-              <div className="bg-white rounded-xl shadow-md p-8 border border-light-gray">
-                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary-blue/20 text-primary-blue">
+              <div className="bg-blue-700 rounded-xl shadow-md p-8">
+                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-emerald-500/20 text-emerald-500">
                   <svg
                     fill="currentColor"
                     height="28"
@@ -442,16 +386,16 @@ const Home = () => {
                     <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path>
                   </svg>
                 </div>
-                <h3 className="mt-6 text-lg font-semibold text-primary-blue">
+                <h3 className="mt-6 text-lg font-semibold text-white">
                   Fast Turnaround
                 </h3>
-                <p className="mt-2 text-sm text-dark-gray">
+                <p className="mt-2 text-sm text-gray-100">
                   Our streamlined processes and dedicated team ensure timely
                   delivery of your projects.
                 </p>
               </div>
-              <div className="bg-white rounded-xl shadow-md p-8 border border-light-gray">
-                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary-blue/20 text-primary-blue">
+              <div className="bg-blue-700 rounded-xl shadow-md p-8">
+                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-emerald-500/20 text-emerald-500">
                   <svg
                     fill="currentColor"
                     height="28"
@@ -462,10 +406,10 @@ const Home = () => {
                     <path d="M128,88a40,40,0,1,0,40,40A40,40,0,0,0,128,88Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,152ZM240,56H16a8,8,0,0,0-8,8V192a8,8,0,0,0,8,8H240a8,8,0,0,0,8-8V64A8,8,0,0,0,240,56ZM193.65,184H62.35A56.78,56.78,0,0,0,24,145.65v-35.3A56.78,56.78,0,0,0,62.35,72h131.3A56.78,56.78,0,0,0,232,110.35v35.3A56.78,56.78,0,0,0,193.65,184ZM232,93.37A40.81,40.81,0,0,1,210.63,72H232ZM45.37,72A40.81,40.81,0,0,1,24,93.37V72ZM24,162.63A40.81,40.81,0,0,1,45.37,184H24ZM210.63,184A40.81,40.81,0,0,1,232,162.63V184Z"></path>
                   </svg>
                 </div>
-                <h3 className="mt-6 text-lg font-semibold text-primary-blue">
+                <h3 className="mt-6 text-lg font-semibold text-white">
                   Competitive Pricing
                 </h3>
-                <p className="mt-2 text-sm text-dark-gray">
+                <p className="mt-2 text-sm text-gray-100">
                   We offer cost-effective solutions without compromising on
                   quality.
                 </p>
@@ -476,23 +420,23 @@ const Home = () => {
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary-blue">
+              <h2 className="text-3xl sm:text-4xl font-bold text-blue-700">
                 What Our Clients Say
               </h2>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
-              <div className="bg-off-white p-8 rounded-xl shadow-md border border-light-gray">
+              <div className="bg-blue-700 p-8 rounded-xl shadow-md">
                 <div className="flex items-center gap-4">
                   <div
                     className="h-12 w-12 rounded-full bg-cover bg-center"
                     style={{ backgroundImage: `url(${Client1Image})` }}
                   ></div>
                   <div>
-                    <p className="font-semibold text-primary-blue">Ngozi Eze</p>
-                    <p className="text-sm text-light-gray">2023-08-15</p>
+                    <p className="font-semibold text-white">Ngozi Eze</p>
+                    <p className="text-sm text-gray-100">2023-08-15</p>
                   </div>
                 </div>
-                <div className="flex mt-4 text-primary-blue">
+                <div className="flex mt-4 text-emerald-500">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
@@ -506,26 +450,24 @@ const Home = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="mt-4 text-dark-gray">
+                <p className="mt-4 text-gray-100">
                   "Swiftify Solutions consistently delivers high-quality prints
                   with exceptional attention to detail. Their team is
                   professional and always meets our deadlines."
                 </p>
               </div>
-              <div className="bg-off-white p-8 rounded-xl shadow-md border border-light-gray">
+              <div className="bg-blue-700 p-8 rounded-xl shadow-md">
                 <div className="flex items-center gap-4">
                   <div
                     className="h-12 w-12 rounded-full bg-cover bg-center"
                     style={{ backgroundImage: `url(${Client2Image})` }}
                   ></div>
                   <div>
-                    <p className="font-semibold text-primary-blue">
-                      Emeka Okeke
-                    </p>
-                    <p className="text-sm text-light-gray">2023-09-20</p>
+                    <p className="font-semibold text-white">Emeka Okeke</p>
+                    <p className="text-sm text-gray-100">2023-09-20</p>
                   </div>
                 </div>
-                <div className="flex mt-4 text-primary-blue">
+                <div className="flex mt-4 text-emerald-500">
                   {[...Array(4)].map((_, i) => (
                     <svg
                       key={i}
@@ -539,7 +481,7 @@ const Home = () => {
                     </svg>
                   ))}
                   <svg
-                    className="text-light-gray"
+                    className="text-gray-300"
                     fill="currentColor"
                     height="20"
                     viewBox="0 0 256 256"
@@ -549,26 +491,24 @@ const Home = () => {
                     <path d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"></path>
                   </svg>
                 </div>
-                <p className="mt-4 text-dark-gray">
+                <p className="mt-4 text-gray-100">
                   "We've been using Swiftify Solutions for our large format
                   printing needs, and they always exceed our expectations. Their
                   service is reliable and efficient."
                 </p>
               </div>
-              <div className="bg-off-white p-8 rounded-xl shadow-md border border-light-gray">
+              <div className="bg-blue-700 p-8 rounded-xl shadow-md">
                 <div className="flex items-center gap-4">
                   <div
                     className="h-12 w-12 rounded-full bg-cover bg-center"
                     style={{ backgroundImage: `url(${Client3Image})` }}
                   ></div>
                   <div>
-                    <p className="font-semibold text-primary-blue">
-                      Fatima Bello
-                    </p>
-                    <p className="text-sm text-light-gray">2023-10-25</p>
+                    <p className="font-semibold text-white">Fatima Bello</p>
+                    <p className="text-sm text-gray-100">2023-10-25</p>
                   </div>
                 </div>
-                <div className="flex mt-4 text-primary-blue">
+                <div className="flex mt-4 text-emerald-500">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
@@ -582,7 +522,7 @@ const Home = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="mt-4 text-dark-gray">
+                <p className="mt-4 text-gray-100">
                   "The promotional items we ordered from Swiftify Solutions were
                   a huge hit at our event. The quality was excellent, and the
                   team was a pleasure to work with."
@@ -593,6 +533,7 @@ const Home = () => {
         </section>
       </main>
       <Footer />
+      <WhatsAppButton /> {/* Add the WhatsApp button here */}
     </div>
   );
 };

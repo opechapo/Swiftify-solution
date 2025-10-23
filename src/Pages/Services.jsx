@@ -63,6 +63,7 @@ const Services = () => {
             <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-black sm:text-4xl">
               Our Services
             </h2>
+            <br />
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
               Swiftify Solutions offers a comprehensive suite of printing
               services tailored to meet the diverse needs of businesses in Lagos
@@ -71,6 +72,9 @@ const Services = () => {
               project.
             </p>
           </div>
+          <br />
+          <br />
+          <br />
 
           {/* Comprehensive Printing Solutions Section */}
           <div className="mt-12">
@@ -83,6 +87,9 @@ const Services = () => {
                 needs, ensuring top-notch quality and timely delivery.
               </p>
             </div>
+            <br />
+            <br />
+            <br />
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {services.map((service, index) => (
                 <div
@@ -122,10 +129,10 @@ const Services = () => {
           <div className="mt-16 space-y-16">
             <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
               <div className="lg:w-1/2">
-                <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold tracking-tight text-blue-400 dark:text-black">
                   Offset Printing
                 </h3>
-                <p className="mt-4 text-base text-gray-600 dark:text-gray-400">
+                <p className="mt-4 text-base text-gray-600 dark:text-gray-600">
                   Our offset printing services are ideal for large print runs,
                   ensuring consistent quality and cost-effectiveness. We handle
                   a wide range of materials, including brochures, flyers,
@@ -148,8 +155,8 @@ const Services = () => {
                       src={OffsetPrintingImage2}
                     />
                   </div>
-                  <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center">
-                    <p className="text-primary font-bold text-lg">
+                  <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-blue-100 flex items-center justify-center">
+                    <p className="text-primary font-bold text-lg text-blue-600">
                       High Volume
                     </p>
                   </div>
@@ -158,10 +165,10 @@ const Services = () => {
             </div>
             <div className="flex flex-col lg:flex-row-reverse lg:items-center lg:gap-16">
               <div className="lg:w-1/2">
-                <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-black">
                   Large Format Printing
                 </h3>
-                <p className="mt-4 text-base text-gray-600 dark:text-gray-400">
+                <p className="mt-4 text-base text-gray-600 dark:text-gray-600">
                   Make a big impact with our large format printing services. We
                   produce vibrant and durable graphics for banners, posters,
                   billboards, and vehicle wraps, perfect for outdoor advertising
@@ -184,18 +191,20 @@ const Services = () => {
                       src={LargeFormatPrintingImage2}
                     />
                   </div>
-                  <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center">
-                    <p className="text-primary font-bold text-lg">Big Impact</p>
+                  <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center bg-blue-100">
+                    <p className="text-primary font-bold text-lg text-blue-600">
+                      Big Impact
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
               <div className="lg:w-1/2">
-                <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-black">
                   Promotional Items
                 </h3>
-                <p className="mt-4 text-base text-gray-600 dark:text-gray-400">
+                <p className="mt-4 text-base text-gray-600 dark:text-gray-600">
                   Boost your brand visibility with our custom promotional items.
                   We offer a variety of products, including branded pens, mugs,
                   t-shirts, and bags, all customizable with your logo and
@@ -218,8 +227,8 @@ const Services = () => {
                       src={PromotionalItemsImage2}
                     />
                   </div>
-                  <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center">
-                    <p className="text-primary font-bold text-lg">
+                  <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center bg-blue-100">
+                    <p className="text-primary font-bold text-lg text-blue-600">
                       Brand Boost
                     </p>
                   </div>
@@ -228,10 +237,10 @@ const Services = () => {
             </div>
             <div className="flex flex-col lg:flex-row-reverse lg:items-center lg:gap-16">
               <div className="lg:w-1/2">
-                <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-black">
                   Signage
                 </h3>
-                <p className="mt-4 text-base text-gray-600 dark:text-gray-400">
+                <p className="mt-4 text-base text-gray-600 dark:text-gray-600">
                   Enhance your business presence with professional signage
                   solutions. We create custom signs for both indoor and outdoor
                   use, including storefront signs, directional signs, and event
@@ -254,8 +263,10 @@ const Services = () => {
                       src={SignageImage2}
                     />
                   </div>
-                  <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center">
-                    <p className="text-primary font-bold text-lg">Visibility</p>
+                  <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center bg-blue-100">
+                    <p className="text-primary font-bold text-lg text-blue-600">
+                      Visibility
+                    </p>
                   </div>
                 </div>
               </div>

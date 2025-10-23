@@ -11,13 +11,8 @@ import {
   FaBars,
 } from "react-icons/fa";
 
-const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const Header = ({ isModalOpen, toggleModal }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -32,14 +27,14 @@ const Header = () => {
     <>
       <header className="sticky top-0 z-50 bg-white backdrop-blur-sm border-light-gray">
         <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
-          <NavLink to="/" className="flex items-center gap-2">
+          <NavLink to="/" className="flex flex-col items-center gap-1">
             <img
               src={swiftifyLogo}
               alt="Swiftify Solution Logo"
               className="h-10 w-10 object-contain"
             />
-            <h2 className="text-l font-bold text-blue-500">
-              Swiftify Solution
+            <h2 className="text-xs font-bold text-blue-500 text-center">
+              SWIFTIFY SOLUTION
             </h2>
           </NavLink>
           <nav className="hidden md:flex items-center gap-8">
@@ -107,7 +102,7 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={toggleModal}
-              className="hidden md:flex items-center justify-center rounded-lg bg-white text-blue-400 h-10 px-5 text-l font-bold shadow-sm hover:bg-secondary-blue hover:text-white transition-colors"
+              className="hidden md:flex items-center justify-center rounded-lg bg-blue-400 text-white h-10 px-5 text-l font-bold shadow-sm hover:bg-secondary-blue hover:text-white transition-colors cursor-pointer"
             >
               Contact Us
             </button>
@@ -190,7 +185,7 @@ const Header = () => {
               </NavLink>
               <button
                 onClick={handleContactSocialClick}
-                className="text-sm font-medium text-blue-400 hover:text-blue-600 transition-colors"
+                className="text-sm font-medium text-blue-400 hover:text-blue-600 transition-colors cursor-pointer"
               >
                 Contact Us (Social)
               </button>
