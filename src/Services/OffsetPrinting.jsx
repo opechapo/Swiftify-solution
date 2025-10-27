@@ -3,13 +3,12 @@ import { useParams, Link } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
-// Sample images - replace with actual image imports
-// import OffsetBrochure from "../../assets/images/services/offset/brochure.jpg";
-// import OffsetFlyer from "../../assets/images/services/offset/flyer.jpg";
-// import OffsetBooklet from "../../assets/images/services/offset/booklet.jpg";
-// import OffsetPoster from "../../assets/images/services/offset/poster.jpg";
-// import OffsetBusinessCard from "../../assets/images/services/offset/business-card.jpg";
-// import OffsetCatalog from "../../assets/images/services/offset/catalog.jpg";
+// Image imports
+import OffBrochuresFlyers from "../assets/images/off Brochures & Flyers.jpg";
+import OffBookletsCatalogs from "../assets/images/off Booklets & Catalogs.jpg";
+import OffBusinessCards from "../assets/images/off Business Cards.jpg";
+import OffPosters from "../assets/images/off Posters.jpg";
+import OffCatalogs from "../assets/images/off Catalogs.jpg";
 
 const OffsetPrinting = () => {
   const { service } = useParams();
@@ -19,7 +18,7 @@ const OffsetPrinting = () => {
       name: "Brochures & Flyers",
       description:
         "Multi-panel brochures and single-sheet flyers for marketing and promotions.",
-      // image: OffsetBrochure,
+      image: OffBrochuresFlyers,
       features: [
         "Full color printing",
         "Multiple folds available",
@@ -31,7 +30,7 @@ const OffsetPrinting = () => {
       name: "Booklets & Catalogs",
       description:
         "Professional catalogs, magazines, and booklets with perfect binding.",
-      // image: OffsetBooklet,
+      image: OffBookletsCatalogs,
       features: [
         "Saddle stitch or perfect binding",
         "High-quality gloss/matt paper",
@@ -43,7 +42,7 @@ const OffsetPrinting = () => {
       name: "Business Cards",
       description:
         "Premium business cards on thick cardstock with spot UV and foil options.",
-      // image: OffsetBusinessCard,
+      image: OffBusinessCards,
       features: [
         "300gsm - 450gsm cardstock",
         "Spot UV, foil stamping",
@@ -54,7 +53,7 @@ const OffsetPrinting = () => {
     {
       name: "Posters",
       description: "Large format posters for indoor and outdoor advertising.",
-      // image: OffsetPoster,
+      image: OffPosters,
       features: [
         "Up to A0 size",
         "170gsm - 250gsm art paper",
@@ -66,7 +65,7 @@ const OffsetPrinting = () => {
       name: "Catalogs",
       description:
         "Comprehensive product catalogs for businesses and retailers.",
-      // image: OffsetCatalog,
+      image: OffCatalogs,
       features: [
         "Perfect binding",
         "Full color throughout",
@@ -81,7 +80,7 @@ const OffsetPrinting = () => {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary-blue to-secondary-blue text-white py-20 overflow-hidden">
+        <section className="relative bg-gradient-to-r from-blue-900 to-blue-400 text-white py-20 overflow-hidden">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center">
@@ -105,7 +104,7 @@ const OffsetPrinting = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 sm:py-24 bg-off-white">
+        <section className="py-16 sm:py-24 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-blue mb-4">
@@ -165,7 +164,7 @@ const OffsetPrinting = () => {
         </section>
 
         {/* Products Grid */}
-        <section className="py-16 sm:py-24">
+        <section className="py-16 sm:py-24 bg-gray-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-blue mb-4">
@@ -219,7 +218,7 @@ const OffsetPrinting = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-primary-blue text-white py-16 sm:py-24">
+        <section className="bg-blue-800 text-white py-16 sm:py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Print in Bulk?

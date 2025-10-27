@@ -3,6 +3,17 @@ import { useParams, Link } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
+// Image imports
+import LargeVinylBanners from "../assets/images/large Vinyl Banners.jpg";
+import LargeBacklitFilm from "../assets/images/large Backlit Film.jpg";
+import LargeVehicleWraps from "../assets/images/large Vehicle Wraps.jpg";
+import LargeFabricBanners from "../assets/images/large Fabric Banners.jpg";
+import LargeFoamBoardSigns from "../assets/images/large Foam Board Signs.jpg";
+import LargeHeroBg from "../assets/images/large Hero Section Background Image.jpg";
+import LargeFeaturesBg from "../assets/images/large Features Section Background Image.jpg";
+import LargeCTABg from "../assets/images/large CTA Section Background Image.jpg";
+import LargeVehicleWrapSpecialBg from "../assets/images/large Vehicle Wrap Special Background Image.jpg";
+
 const LargeFormatPrinting = () => {
   const { service } = useParams();
 
@@ -11,6 +22,7 @@ const LargeFormatPrinting = () => {
       name: "Vinyl Banners",
       description:
         "Durable outdoor banners for events, promotions, and advertising.",
+      image: LargeVinylBanners,
       features: [
         "13oz vinyl material",
         "Grommets & hems",
@@ -22,6 +34,7 @@ const LargeFormatPrinting = () => {
     {
       name: "Backlit Film",
       description: "Illuminated signage for maximum visibility day and night.",
+      image: LargeBacklitFilm,
       features: [
         "Translucent material",
         "Perfect for light boxes",
@@ -33,6 +46,7 @@ const LargeFormatPrinting = () => {
     {
       name: "Vehicle Wraps",
       description: "Complete or partial vehicle branding that turns heads.",
+      image: LargeVehicleWraps,
       features: [
         "3M or Avery vinyl",
         "5+ year durability",
@@ -44,6 +58,7 @@ const LargeFormatPrinting = () => {
     {
       name: "Fabric Banners",
       description: "Premium fabric banners for indoor events and trade shows.",
+      image: LargeFabricBanners,
       features: [
         "Polyester fabric",
         "Sewn edges & grommets",
@@ -56,6 +71,7 @@ const LargeFormatPrinting = () => {
       name: "Foam Board Signs",
       description:
         "Lightweight, rigid signs perfect for presentations and displays.",
+      image: LargeFoamBoardSigns,
       features: [
         "1/2 inch foam core",
         "Matte or gloss surface",
@@ -70,7 +86,15 @@ const LargeFormatPrinting = () => {
     <div className="flex flex-col min-h-screen font-display bg-white text-dark-gray">
       <Header />
       <main className="flex-grow">
-        <section className="relative bg-gradient-to-r from-orange-500 to-red-500 text-white py-20 overflow-hidden">
+        {/* Hero Section */}
+        <section
+          className="relative bg-gradient-to-r from-orange-500 to-red-500 text-white py-20 overflow-hidden"
+          style={{
+            backgroundImage: `url(${LargeHeroBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center">
@@ -92,7 +116,15 @@ const LargeFormatPrinting = () => {
           </div>
         </section>
 
-        <section className="py-16 sm:py-24 bg-off-white">
+        {/* Features Section */}
+        <section
+          className="py-16 sm:py-24 bg-blue-100"
+          style={{
+            // backgroundImage: `url(${LargeFeaturesBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-blue mb-4">
@@ -151,6 +183,7 @@ const LargeFormatPrinting = () => {
           </div>
         </section>
 
+        {/* Our Large Format Solutions Section */}
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -162,8 +195,12 @@ const LargeFormatPrinting = () => {
                   {largeFormatProducts.map((product, index) => (
                     <div
                       key={index}
-                      className="bg-off-white p-6 rounded-xl hover:shadow-md transition-shadow"
+                      className="bg-blue-100 p-6 rounded-xl hover:shadow-md transition-shadow"
                     >
+                      <div
+                        className="h-64 bg-cover bg-center mb-4"
+                        style={{ backgroundImage: `url(${product.image})` }}
+                      ></div>
                       <h3 className="text-xl font-bold text-primary-blue mb-3">
                         {product.name}
                       </h3>
@@ -211,26 +248,45 @@ const LargeFormatPrinting = () => {
                 </div>
               </div>
               <div className="relative">
-                <div className="bg-gradient-to-br from-primary-blue to-secondary-blue rounded-2xl p-8 text-white text-center">
-                  <div className="text-6xl mb-6">🚀</div>
-                  <h3 className="text-2xl font-bold mb-4">
-                    Vehicle Wrap Special
-                  </h3>
-                  <p className="mb-6">
-                    Complete vehicle branding starting from
-                  </p>
-                  <div className="text-4xl font-bold mb-6">₦250,000</div>
-                  <button className="bg-white text-primary-blue px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
-                    Get Quote
-                  </button>
+                <div
+                  className="bg-gradient-to-br from-primary-blue to-secondary-blue rounded-2xl p-8 text-white text-center"
+                  style={{
+                    backgroundImage: `url(${LargeVehicleWrapSpecialBg})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black/30"></div>
+                  <div className="relative z-10">
+                    <div className="text-6xl mb-6">🚀</div>
+                    <h3 className="text-2xl font-bold mb-4">
+                      Vehicle Wrap Special
+                    </h3>
+                    <p className="mb-6">
+                      Complete vehicle branding starting from
+                    </p>
+                    <div className="text-4xl font-bold mb-6">₦250,000</div>
+                    <button className="bg-white text-blue-400 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                      Get Quote
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* CTA Section */}
+        <section
+          className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-16 sm:py-24"
+          style={{
+            backgroundImage: `url(${LargeCTABg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Transform Your Brand with Large Format
             </h2>
