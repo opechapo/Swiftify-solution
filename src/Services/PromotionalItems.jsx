@@ -3,6 +3,16 @@ import { useParams, Link } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
+// Image imports
+import PromoBrandedMugs from "../assets/images/promotional Branded Mugs.jpg";
+import PromoTShirtsPolos from "../assets/images/promotional T-Shirts & Polos.jpg";
+import PromoUSBDrives from "../assets/images/promotional USB Flash Drives.jpg";
+import PromoEcoBags from "../assets/images/promotional Eco Bags.jpg";
+import PromoPowerBanks from "../assets/images/promotional Power Banks.jpg";
+import PromoHeroBg from "../assets/images/promotional Hero Section Background Image.jpg";
+import PromoMainBg from "../assets/images/promotional  Main Section (Product Grid and Filters) Background Image.jpg";
+import PromoCTABg from "../assets/images/promotional  CTA Section Background Image.jpg";
+
 const PromotionalItems = () => {
   const { service } = useParams();
 
@@ -10,6 +20,7 @@ const PromotionalItems = () => {
     {
       name: "Branded Mugs",
       description: "Custom printed ceramic or plastic mugs for your brand.",
+      image: PromoBrandedMugs,
       category: "Drinkware",
       minOrder: "50 pieces",
       features: [
@@ -22,6 +33,7 @@ const PromotionalItems = () => {
     {
       name: "T-Shirts & Polos",
       description: "Custom apparel with screen printing or DTG printing.",
+      image: PromoTShirtsPolos,
       category: "Apparel",
       minOrder: "25 pieces",
       features: [
@@ -34,6 +46,7 @@ const PromotionalItems = () => {
     {
       name: "USB Flash Drives",
       description: "Preloaded promotional USB drives with your content.",
+      image: PromoUSBDrives,
       category: "Tech",
       minOrder: "100 pieces",
       features: [
@@ -46,6 +59,7 @@ const PromotionalItems = () => {
     {
       name: "Eco Bags",
       description: "Reusable tote bags made from recycled materials.",
+      image: PromoEcoBags,
       category: "Bags",
       minOrder: "100 pieces",
       features: [
@@ -58,6 +72,7 @@ const PromotionalItems = () => {
     {
       name: "Power Banks",
       description: "Branded portable chargers for mobile devices.",
+      image: PromoPowerBanks,
       category: "Tech",
       minOrder: "50 pieces",
       features: [
@@ -73,7 +88,15 @@ const PromotionalItems = () => {
     <div className="flex flex-col min-h-screen font-display bg-white text-dark-gray">
       <Header />
       <main className="flex-grow">
-        <section className="relative bg-gradient-to-r from-green-500 to-emerald-600 text-white py-20 overflow-hidden">
+        {/* Hero Section */}
+        <section
+          className="relative bg-gradient-to-r from-green-500 to-emerald-600 text-white py-20 overflow-hidden"
+          style={{
+            backgroundImage: `url(${PromoHeroBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center">
@@ -95,7 +118,16 @@ const PromotionalItems = () => {
           </div>
         </section>
 
-        <section className="py-16 sm:py-24">
+        {/* Main Section - Product Grid & Filters */}
+        <section
+          className="py-16 sm:py-24"
+          style={{
+            backgroundImage: `url(${PromoMainBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
+          }}
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-blue mb-4">
@@ -107,7 +139,7 @@ const PromotionalItems = () => {
               </p>
             </div>
 
-            {/* Category Filter - Simplified */}
+            {/* Category Filter */}
             <div className="flex flex-wrap justify-center gap-4 mb-12">
               {[
                 "All",
@@ -126,19 +158,21 @@ const PromotionalItems = () => {
               ))}
             </div>
 
+            {/* Product Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {promoItems.map((item, index) => (
                 <div
                   key={index}
                   className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group"
                 >
-                  <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center bg-cover bg-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all"></div>
-                    <div className="relative z-10 text-center">
-                      <div className="text-6xl mb-4">☕</div>
-                      <div className="text-2xl font-bold">{item.name}</div>
-                    </div>
+                  {/* Product Image */}
+                  <div
+                    className="h-64 bg-cover bg-center relative overflow-hidden group-hover:scale-105 transition-transform duration-500"
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  >
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-300"></div>
                   </div>
+
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
                       <span
@@ -213,8 +247,17 @@ const PromotionalItems = () => {
           </div>
         </section>
 
-        <section className="bg-gradient-to-r from-green-500 to-emerald-600 text-white py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* CTA Section */}
+        <section
+          className="bg-gradient-to-r from-green-500 to-emerald-600 text-white py-16 sm:py-24"
+          style={{
+            backgroundImage: `url(${PromoCTABg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Make Every Touchpoint Count
             </h2>
