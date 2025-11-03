@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { VapiWidget } from "@vapi-ai/client-sdk-react";
+import "./styles/VapiWidget.css"; // ← NEW
 
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -35,13 +36,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
 
-      {/* RESPONSIVE VAPI WIDGET */}
+      {/* RESPONSIVE + COMPACT VAPI WIDGET */}
       <VapiWidget
-        className="z-50 
-                   fixed 
-                   bottom-4 right-4 
-                   md:bottom-6 md:right-6 
-                   lg:bottom-8 lg:right-8"
+        className="z-50 fixed bottom-4 right-4 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8"
         publicKey="6aee3d91-1969-4e06-afc6-cc7d9a7567a6"
         assistantId="a98f040f-60d4-4448-967e-4c09a36b1329"
         mode="hybrid"
@@ -53,8 +50,6 @@ function App() {
         voiceShowTranscript={true}
         ctaTitle="Need Help?"
         ctaSubtitle="24/7 Printing Support"
-        // Optional: smaller on mobile
-        // buttonSize="small"  // uncomment if Vapi supports it
       />
     </Router>
   );
