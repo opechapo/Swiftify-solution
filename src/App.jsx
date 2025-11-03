@@ -38,7 +38,7 @@ function App() {
 
       {/* RESPONSIVE + COMPACT VAPI WIDGET */}
       <VapiWidget
-        className="z-30 fixed bottom-4 right-8 md:bottom-4 md:right-8 lg:bottom-4 lg:right-8"
+        className="z-30 fixed bottom-4 right-10 md:bottom-4 md:right-10 lg:bottom-4 lg:right-10"
         publicKey="6aee3d91-1969-4e06-afc6-cc7d9a7567a6"
         assistantId="a98f040f-60d4-4448-967e-4c09a36b1329"
         mode="hybrid"
@@ -53,7 +53,7 @@ function App() {
         chat-first-message="Hey, How can I help you today?"
         chatPlaceholder="Ask about printing or book a call..."
         voiceShowTranscript={true}
-        ctaTitle="Need Help?"
+        ctaTitle="Swiftify AI ChatBox"
         ctaSubtitle="24/7 Printing Support"
       />
     </Router>
