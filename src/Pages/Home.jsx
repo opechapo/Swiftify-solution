@@ -533,7 +533,7 @@ const Home = () => {
         </section>
       </main>
       <Footer />
-      <WhatsAppButton /> {/* Add the WhatsApp button here */}
+      {/* <WhatsAppButton /> Add the WhatsApp button here */}
     </div>
   );
 };
