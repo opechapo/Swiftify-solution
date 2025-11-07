@@ -215,7 +215,7 @@ const Home = () => {
                 onClick={toggleModal}
                 className="mt-8 rounded-lg bg-blue-400 text-white h-12 px-6 text-base font-bold shadow-lg hover:bg-secondary-blue transition-all transform hover:scale-105 cursor-pointer"
               >
-                Contact Us
+                Contact Us Now
               </button>
             </div>
           </div>

@@ -45,7 +45,7 @@ function App() {
         position="bottom-right"
         theme="dark"
         size="compact"
-        accentColor="#10B981"
+        accentColor="#1E88E5"
         start-button-text="Start"
         voice-show-transcript="true"
         end-button-text="End Call"
